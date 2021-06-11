@@ -39,7 +39,7 @@
         ]
       },
       {
-        "source": "**/*.@(png|webmanifest|woff|woff2|svg|ico)",
+        "source": "**/*.@(png|webmanifest|woff|woff2|svg|ico|json)",
         "headers": [
           {
             "key": "Cache-Control",
