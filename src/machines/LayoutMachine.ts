@@ -1,10 +1,10 @@
 import { IState, Machine, State } from 'enta';
 import RickAndMortyExplorer from '../RickAndMortyExplorer';
-import CharacterList from '../views/lists/character/CharacterList';
+import CharacterList from '../views/desktop/lists/character/CharacterList';
 import MobileCharacterList from '../views/mobile/lists/MobileCharacterList';
 import MobilePageNavigator from '../views/mobile/MobilePageNavigator';
 import MobileTopBar from '../views/mobile/MobileTopBar';
-import TopBar from '../views/TopBar';
+import TopBar from '../views/desktop/TopBar';
 
 export default class LayoutMachine extends Machine<RickAndMortyExplorer> {
     public constructor(host: RickAndMortyExplorer) {
