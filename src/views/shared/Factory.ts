@@ -1,5 +1,5 @@
 import { ILabelElement, LabelElement, IDisplayElement, DisplayElement, TextAlign, IImageElement, ImageElement, IPathElement, PathElement } from 'enta';
-import Theme from './theme/Theme';
+import Theme from '../../theme/Theme';
 
 export default class Factory {
     static regularLabel(percentWidth = NaN, width = NaN, textAlign: TextAlign = 'left'): ILabelElement {
