@@ -26,7 +26,9 @@ export default class GraphQL {
         return {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8',
+                'Cache-Control': 'max-age=604800',
+                Pragma: 'max-age=604800'
             },
             body: JSON.stringify({
                 query: characterPage(name, page)
