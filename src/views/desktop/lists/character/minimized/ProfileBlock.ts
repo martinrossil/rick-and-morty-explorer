@@ -22,6 +22,7 @@ export default class ProfileBlock extends DisplayContainer {
         if (value) {
             this.characterLabel.text = value.name;
             this.profile.source = Theme.AVATAR_URL + value.id + '.jpeg';
+            this.profile.alt = value.name;
         }
     }
 

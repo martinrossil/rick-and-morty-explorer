@@ -22,6 +22,7 @@ export default class MaxProfileBlock extends DisplayContainer {
         this._character = value;
         if (value) {
             this.profile.source = Theme.AVATAR_URL + value.id + '.jpeg';
+            this.profile.alt = value.name;
         }
     }
 

@@ -38,6 +38,7 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
     protected dataChanged(): void {
         if (this.data) {
             this.profile.source = Theme.AVATAR_URL + this.data.id + '.jpeg';
+            this.profile.alt = this.data.name;
             this.characterLabel.text = this.data.name;
             this.location.text = this.data.location.name;
             this.gender.text = this.data.gender;
