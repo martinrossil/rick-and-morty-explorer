@@ -59,6 +59,7 @@ export default class SearchField extends DisplayContainer {
             this._input.style.fontSize = 18 + 'px';
             this._input.style.color = Theme.BLUE_500.toString();
             this._input.style.fontWeight = '700';
+            this._input.setAttribute('aria-label', 'Search')
         }
         return this._input;
     }
