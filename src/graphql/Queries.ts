@@ -1,14 +1,3 @@
-export function characterFilterByName(name: string): string {
-    return `{
-        characters(filter: { name: "` + name + `" }) {
-            results {
-                id,
-                name
-            }
-        }
-    }`
-}
-
 export function characterPage(name = '', page = 1): string {
     return `
     { 
