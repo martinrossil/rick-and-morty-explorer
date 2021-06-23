@@ -1,4 +1,5 @@
 import { ILabelElement, LabelElement, IDisplayElement, DisplayElement, TextAlign, IImageElement, ImageElement, IPathElement, PathElement } from 'enta';
+import Colors from '../../theme/Colors';
 import Theme from '../../theme/Theme';
 
 export default class Factory {
@@ -7,7 +8,7 @@ export default class Factory {
         labelElement.percentWidth = percentWidth;
         labelElement.width = width;
         labelElement.typeFace = Theme.TYPEFACE_REGULAR;
-        labelElement.textColor = Theme.BLUE_GRAY_700;
+        labelElement.textColor = Colors.BLUE_GRAY_700;
         labelElement.textAlign = textAlign;
         return labelElement;
     }
@@ -17,7 +18,7 @@ export default class Factory {
         labelElement.percentWidth = percentWidth;
         labelElement.width = width;
         labelElement.typeFace = Theme.TYPEFACE_BOLD;
-        labelElement.textColor = Theme.BLUE_GRAY_500;
+        labelElement.textColor = Colors.BLUE_GRAY_500;
         labelElement.fontWeight = 700;
         return labelElement;
     }
@@ -26,7 +27,7 @@ export default class Factory {
         const labelElement: ILabelElement = new LabelElement();
         labelElement.text = 'Rick and Morty Explorer';
         labelElement.fontSize = 28;
-        labelElement.textColor = Theme.WHITE;
+        labelElement.textColor = Colors.WHITE;
         labelElement.typeFace = Theme.TYPEFACE_BOLD;
         labelElement.fontWeight = 700;
         labelElement.verticalMiddle = 0;
@@ -41,7 +42,7 @@ export default class Factory {
         labelElement.text = text;
         labelElement.fontSize = 14;
         labelElement.typeFace = Theme.TYPEFACE_BOLD;
-        labelElement.textColor = Theme.BLUE_GRAY_500;
+        labelElement.textColor = Colors.BLUE_GRAY_500;
         labelElement.textAlign = textAlign;
         labelElement.fontWeight = 700;
         return labelElement;
@@ -51,7 +52,7 @@ export default class Factory {
         const line: IDisplayElement = new DisplayElement();
         line.percentWidth = 100;
         line.height = 1;
-        line.backgroundColor = Theme.BLUE_GRAY_200;
+        line.backgroundColor = Colors.BLUE_GRAY_200;
         line.bottom = 0;
         return line;
     }
@@ -71,8 +72,8 @@ export default class Factory {
         d += 'A ' + corner + ' ' + corner + ' 0 0 1 ' + '0 ' + (diameter - corner) + ' ';
         d += 'Z';
         ring.pathData = d;
-        ring.strokeColor = Theme.BLUE_500;
-        ring.fillColor = Theme.TRANSPARENT;
+        ring.strokeColor = Colors.BLUE_500;
+        ring.fillColor = Colors.TRANSPARENT;
         ring.strokeWidth = strokeWidth;
         return ring;
     }
@@ -88,7 +89,7 @@ export default class Factory {
 
     static profileImage(size: number, corner: number): IImageElement {
         const image: IImageElement = new ImageElement();
-        image.backgroundColor = Theme.BLUE_GRAY_200;
+        image.backgroundColor = Colors.BLUE_GRAY_200;
         image.size(size, size);
         image.cornerSize = corner;
         image.clip = 'hidden';

@@ -1,6 +1,6 @@
 import { DisplayContainer, ILabelElement, IInteractive, TouchMachine, Cursor } from 'enta';
 import Factory from '../shared/Factory';
-import Theme from '../../theme/Theme';
+import Colors from '../../theme/Colors';
 
 export default class ModalButton extends DisplayContainer implements IInteractive {
     public constructor() {
@@ -10,11 +10,11 @@ export default class ModalButton extends DisplayContainer implements IInteractiv
         this.cornerSize = 4;
         this.label.text = 'GOT IT :)';
         this.label.letterSpacing = 1;
-        this.label.textColor = Theme.WHITE;
+        this.label.textColor = Colors.WHITE;
         this.label.fontSize = 14;
         this.paddingX = 16;
         this.paddingY = 14;
-        this.backgroundColor = Theme.BLUE_GRAY_500;
+        this.backgroundColor = Colors.BLUE_GRAY_500;
         this.addElement(this.label);
     }
 

@@ -4,6 +4,7 @@ import Theme from '../../../theme/Theme';
 import Factory from '../../shared/Factory';
 import Chip from '../../shared/Chip';
 import MobileEpisodesList from './MobileEpisodesList';
+import Colors from '../../../theme/Colors';
 
 export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema> {
     public constructor() {
@@ -15,10 +16,10 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
         this.clip = 'hidden';
         this.cornerSize = 8;
         this.padding = 16;
-        this.backgroundColor = Theme.WHITE;
+        this.backgroundColor = Colors.WHITE;
         this.gender.visible = false;
         this.status.visible = false;
-        this.location.textColor = Theme.BLUE_GRAY_500;
+        this.location.textColor = Colors.BLUE_GRAY_500;
         this.layout = new VerticalLayout(16);
         this.addFilter(Theme.BOX_SHADOW_2);
         this.addElements([this.characterBlock, this.mobileEpisodesList]);
@@ -129,7 +130,7 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
     private get characterLabel(): ILabelElement {
         if (!this._characterLabel) {
             this._characterLabel = Factory.boldLabel(100);
-            this._characterLabel.textColor = Theme.BLUE_GRAY_700;
+            this._characterLabel.textColor = Colors.BLUE_GRAY_700;
             this._characterLabel.percentWidth = 100;
         }
         return this._characterLabel;

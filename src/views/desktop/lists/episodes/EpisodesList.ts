@@ -1,5 +1,6 @@
 import { DisplayContainer, IList, List, IDisplayElement, DisplayElement, VerticalLayout, ArrayCollection } from 'enta';
 import { EpisodeSchema } from '../../../../graphql/schema/EpisodeSchema';
+import Colors from '../../../../theme/Colors';
 import Theme from '../../../../theme/Theme';
 import EpisodesRow from './EpisodesRow';
 
@@ -10,7 +11,7 @@ export default class EpisodesList extends DisplayContainer {
         this.percentWidth = 100;
         this.clip = 'hidden';
         this.height = 200;
-        this.backgroundColor = Theme.WHITE;
+        this.backgroundColor = Colors.WHITE;
         this.cornerSize = 8;
         this.addElements([this.list, this.shadowBox]);
     }

@@ -3,6 +3,7 @@ import Factory from '../shared/Factory';
 import AppState from '../../state/AppState';
 import Theme from '../../theme/Theme';
 import SearchField from '../shared/SearchField';
+import Colors from '../../theme/Colors';
 
 export default class TopBar extends DisplayContainer {
     public constructor() {
@@ -11,15 +12,15 @@ export default class TopBar extends DisplayContainer {
         this.percentWidth = 100;
         this.height = 56;
         this.paddingX = 16;
-        this.backgroundColor = Theme.BLUE_500;
+        this.backgroundColor = Colors.BLUE_500;
         this.addFilter(Theme.BOX_SHADOW_1);
         this.addFilter(Theme.BOX_SHADOW_2);
         this.addElements([this.titleLabel, new SearchField(256, NaN, 40, 0)]);
         AppState.onlineStatus.addEventListener('changed', () => {
             if (AppState.onlineStatus.online) {
-                this.backgroundColor = Theme.BLUE_500;
+                this.backgroundColor = Colors.BLUE_500;
             } else {
-                this.backgroundColor = Theme.BLUE_GRAY_500;
+                this.backgroundColor = Colors.BLUE_GRAY_500;
             }
         });
     }

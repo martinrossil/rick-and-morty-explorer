@@ -5,6 +5,7 @@ import AppState from '../../../../state/AppState';
 import Theme from '../../../../theme/Theme';
 import CharacterListHeader from './CharacterListHeader';
 import PageNavigator from '../navigator/PageNavigator';
+import Colors from '../../../../theme/Colors';
 
 export default class CharacterList extends DisplayContainer {
     public constructor() {
@@ -23,7 +24,7 @@ export default class CharacterList extends DisplayContainer {
         if (!this._container) {
             this._container = new DisplayContainer();
             this._container.percentWidth = this._container.percentHeight = 100;
-            this._container.backgroundColor = Theme.WHITE;
+            this._container.backgroundColor = Colors.WHITE;
             this._container.cornerSize = 8;
             this._container.addFilter(Theme.BOX_SHADOW_1);
             this._container.addFilter(Theme.BOX_SHADOW_2);

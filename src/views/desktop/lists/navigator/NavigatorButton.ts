@@ -1,5 +1,5 @@
 import { DisplayContainer, Cursor, IInteractive, TouchMachine, IPathElement, PathElement, Rectangle, IColor } from 'enta';
-import Theme from '../../../../theme/Theme';
+import Colors from '../../../../theme/Colors';
 
 export default class NavigatorButton extends DisplayContainer implements IInteractive {
     private event: string;
@@ -12,7 +12,7 @@ export default class NavigatorButton extends DisplayContainer implements IIntera
         this.size(40, 40);
         this.cursor = Cursor.POINTER;
         this.cornerSize = 20;
-        this.backgroundColor = Theme.BLUE_500;
+        this.backgroundColor = Colors.BLUE_500;
         this.addElement(this.path);
         this.verticalMiddle = 0;
         this.right = right;

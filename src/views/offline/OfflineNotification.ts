@@ -2,13 +2,14 @@ import { DisplayContainer, IDisplayContainer, ITextElement, ILabelElement, TextE
 import Factory from '../shared/Factory';
 import Theme from '../../theme/Theme';
 import ModalButton from './ModalButton';
+import Colors from '../../theme/Colors';
 
 export default class OfflineNotification extends DisplayContainer {
     public constructor() {
         super();
         this.name = 'OfflineNotification';
         this.percentWidth = this.percentHeight = 100;
-        this.backgroundColor = Theme.OFFLINE;
+        this.backgroundColor = Colors.OFFLINE;
         this.addElement(this.modal);
     }
 
@@ -18,7 +19,7 @@ export default class OfflineNotification extends DisplayContainer {
             this._modal = new DisplayContainer();
             this._modal.width = 340;
             this._modal.cornerSize = 8;
-            this._modal.backgroundColor = Theme.WHITE;
+            this._modal.backgroundColor = Colors.WHITE;
             this._modal.addFilter(Theme.BOX_SHADOW_1);
             this._modal.addFilter(Theme.BOX_SHADOW_2);
             this._modal.horizontalCenter = 0;
@@ -47,7 +48,7 @@ export default class OfflineNotification extends DisplayContainer {
         if (!this._titleLabel) {
             this._titleLabel = Factory.boldLabel();
             this._titleLabel.text = 'You are now offline!';
-            this._titleLabel.textColor = Theme.BLUE_GRAY_900;
+            this._titleLabel.textColor = Colors.BLUE_GRAY_900;
             this._titleLabel.fontSize = 20;
         }
         return this._titleLabel;
@@ -59,7 +60,7 @@ export default class OfflineNotification extends DisplayContainer {
             this._bodyText = new TextElement();
             this._bodyText.percentWidth = 100;
             this._bodyText.typeFace = Theme.TYPEFACE_REGULAR;
-            this._bodyText.textColor = Theme.BLUE_GRAY_700;
+            this._bodyText.textColor = Colors.BLUE_GRAY_700;
             this._bodyText.lineHeight = 1.4;
             this._bodyText.text = 'The content you have been browsing until this point, is still available.\n\nWhen you loose your connection, the UI turns gray and back to blue when you are online again.';
         }
@@ -76,7 +77,7 @@ export default class OfflineNotification extends DisplayContainer {
             this._bottomBar.paddingRight = 9;
             this._bottomBar.cornerSizeBottomLeft = 8;
             this._bottomBar.cornerSizeBottomRight = 8;
-            this._bottomBar.backgroundColor = Theme.BLUE_GRAY_100;
+            this._bottomBar.backgroundColor = Colors.BLUE_GRAY_100;
             this._bottomBar.layout = new HorizontalLayout(0, 'right');
             this._bottomBar.addElement(new ModalButton());
         }

@@ -2,6 +2,7 @@ import { DisplayContainer, IImageElement, ILabelElement, HorizontalLayout } from
 import Factory from '../../../../shared/Factory';
 import { CharacterSchema } from '../../../../../graphql/schema/CharacterSchema';
 import Theme from '../../../../../theme/Theme';
+import Colors from '../../../../../theme/Colors';
 
 export default class ProfileBlock extends DisplayContainer {
     public constructor() {
@@ -37,7 +38,7 @@ export default class ProfileBlock extends DisplayContainer {
         if (!this._characterLabel) {
             this._characterLabel = Factory.boldLabel(100);
             this._characterLabel.percentWidth = 100;
-            this._characterLabel.textColor = Theme.BLUE_GRAY_700;
+            this._characterLabel.textColor = Colors.BLUE_GRAY_700;
         }
         return this._characterLabel;
     }

@@ -2,6 +2,7 @@ import { DisplayContainer, HorizontalLayout, IDisplayContainer, ILabelElement, I
 import Factory from '../../shared/Factory';
 import { EpisodeSchema } from '../../../graphql/schema/EpisodeSchema';
 import Theme from '../../../theme/Theme';
+import Colors from '../../../theme/Colors';
 
 export default class MobileEpisodesRow extends ItemRenderer<EpisodeSchema> {
     public constructor() {
@@ -13,7 +14,7 @@ export default class MobileEpisodesRow extends ItemRenderer<EpisodeSchema> {
         this.paddingX = 16;
         this.layout = new HorizontalLayout(16, 'left', 'middle');
         this.nameLabel.fontSize = 14;
-        this.nameLabel.textColor = Theme.BLUE_GRAY_700;
+        this.nameLabel.textColor = Colors.BLUE_GRAY_700;
         this.addElements([this.season, this.nameLabel, this.episode]);
     }
 
@@ -28,8 +29,8 @@ export default class MobileEpisodesRow extends ItemRenderer<EpisodeSchema> {
             this.seasonLabel.fontSize = 10;
             this.seasonLabel.horizontalCenter = 0;
             this.seasonLabel.verticalMiddle = 0;
-            this.seasonLabel.textColor = Theme.BLUE_GRAY_700;
-            this._season.backgroundColor = Theme.BLUE_GRAY_200;
+            this.seasonLabel.textColor = Colors.BLUE_GRAY_700;
+            this._season.backgroundColor = Colors.BLUE_GRAY_200;
         }
         return this._season;
     }
@@ -41,11 +42,11 @@ export default class MobileEpisodesRow extends ItemRenderer<EpisodeSchema> {
             this._episode.height = 14;
             this._episode.width = 28;
             this._episode.cornerSize = 7;
-            this._episode.backgroundColor = Theme.BLUE_GRAY_200;
+            this._episode.backgroundColor = Colors.BLUE_GRAY_200;
             this.episodeLabel.fontSize = 10;
             this.episodeLabel.horizontalCenter = 0;
             this.episodeLabel.verticalMiddle = 0;
-            this.episodeLabel.textColor = Theme.BLUE_GRAY_700;
+            this.episodeLabel.textColor = Colors.BLUE_GRAY_700;
             this._episode.addElement(this.episodeLabel);
         }
         return this._episode;

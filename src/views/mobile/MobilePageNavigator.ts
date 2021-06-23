@@ -3,6 +3,7 @@ import Factory from '../shared/Factory';
 import AppState from '../../state/AppState';
 import Theme from '../../theme/Theme';
 import NavigatorButton from '../desktop/lists/navigator/NavigatorButton';
+import Colors from '../../theme/Colors';
 
 export default class MobilePageNavigator extends DisplayContainer {
     public constructor() {
@@ -12,21 +13,21 @@ export default class MobilePageNavigator extends DisplayContainer {
         this.height = 56;
         this.bottom = -1;
         this.addFilter(Theme.BOX_SHADOW_4);
-        this.backgroundColor = Theme.BLUE_500;
+        this.backgroundColor = Colors.BLUE_500;
         this.addElement(this.container);
         this.infoLabel.horizontalCenter = 0;
         this.infoLabel.verticalMiddle = 0;
-        this.infoLabel.textColor = Theme.WHITE;
-        this.previous.backgroundColor = Theme.WHITE;
-        this.next.backgroundColor = Theme.WHITE;
+        this.infoLabel.textColor = Colors.WHITE;
+        this.previous.backgroundColor = Colors.WHITE;
+        this.next.backgroundColor = Colors.WHITE;
         AppState.pageInfo.addEventListener('changed', () => {
             this.infoLabel.text = 'Page ' + AppState.pageInfo.page + ' of ' + AppState.pageInfo.pages;
         });
         AppState.onlineStatus.addEventListener('changed', () => {
             if (AppState.onlineStatus.online) {
-                this.backgroundColor = Theme.BLUE_500;
+                this.backgroundColor = Colors.BLUE_500;
             } else {
-                this.backgroundColor = Theme.BLUE_GRAY_500;
+                this.backgroundColor = Colors.BLUE_GRAY_500;
             }
         });
     }
@@ -44,8 +45,8 @@ export default class MobilePageNavigator extends DisplayContainer {
         return this._container
     }
 
-    private previous: NavigatorButton = new NavigatorButton('PREVIOUS', Theme.ARROW_BACK, NaN, Theme.BLUE_500);
+    private previous: NavigatorButton = new NavigatorButton('PREVIOUS', Theme.ARROW_BACK, NaN, Colors.BLUE_500);
     private infoLabel: ILabelElement = Factory.boldLabel();
-    private next: NavigatorButton = new NavigatorButton('NEXT', Theme.ARROW_FORWARD, 0, Theme.BLUE_500);
+    private next: NavigatorButton = new NavigatorButton('NEXT', Theme.ARROW_FORWARD, 0, Colors.BLUE_500);
 }
 customElements.define('mobile-page-navigator', MobilePageNavigator);

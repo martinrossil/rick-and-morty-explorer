@@ -1,4 +1,5 @@
 import { DisplayContainer, ILabelElement, LabelElement, IColor } from 'enta';
+import Colors from '../../theme/Colors';
 import Theme from '../../theme/Theme';
 
 export default class Chip extends DisplayContainer {
@@ -6,7 +7,7 @@ export default class Chip extends DisplayContainer {
         super();
         this.name = 'Chip';
         this.addElement(this.textLabel);
-        this.backgroundColor = Theme.BLUE_GRAY_200;
+        this.backgroundColor = Colors.BLUE_GRAY_200;
         this.width = 70;
         this.height = 20;
         this.cornerSize = 10;
@@ -22,40 +23,40 @@ export default class Chip extends DisplayContainer {
             return;
         }
         if (this.text === 'Alive') {
-            this.textColor = Theme.GREEN_700;
-            this.backgroundColor = Theme.GREEN_200;
+            this.textColor = Colors.GREEN_700;
+            this.backgroundColor = Colors.GREEN_200;
             return
         }
         if (this.text === 'Dead') {
-            this.textColor = Theme.RED_700;
-            this.backgroundColor = Theme.RED_200;
+            this.textColor = Colors.RED_700;
+            this.backgroundColor = Colors.RED_200;
             return;
         }
         if (this.text === 'Male') {
-            this.textColor = Theme.BLUE_700;
-            this.backgroundColor = Theme.BLUE_200;
+            this.textColor = Colors.BLUE_700;
+            this.backgroundColor = Colors.BLUE_200;
             return;
         }
         if (this.text === 'Female') {
-            this.textColor = Theme.PINK_700;
-            this.backgroundColor = Theme.PINK_200;
+            this.textColor = Colors.PINK_700;
+            this.backgroundColor = Colors.PINK_200;
             return;
         }
         if (this.text === 'Human') {
-            this.textColor = Theme.ORANGE_700;
-            this.backgroundColor = Theme.ORANGE_200;
+            this.textColor = Colors.ORANGE_700;
+            this.backgroundColor = Colors.ORANGE_200;
             return;
         }
         if (this.text === 'Alien') {
-            this.textColor = Theme.TEAL_700;
-            this.backgroundColor = Theme.TEAL_200;
+            this.textColor = Colors.TEAL_700;
+            this.backgroundColor = Colors.TEAL_200;
             return;
         }
-        this.textColor = Theme.BLUE_GRAY_700;
-        this.backgroundColor = Theme.BLUE_GRAY_200;
+        this.textColor = Colors.BLUE_GRAY_700;
+        this.backgroundColor = Colors.BLUE_GRAY_200;
     }
 
-    private _textColor: IColor = Theme.BLUE_GRAY_700;
+    private _textColor: IColor = Colors.BLUE_GRAY_700;
     public set textColor(value: IColor) {
         if (this._textColor === value) {
             return;

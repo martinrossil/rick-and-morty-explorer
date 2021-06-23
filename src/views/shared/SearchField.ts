@@ -1,5 +1,6 @@
 import { DisplayContainer, IPathElement, PathElement, Rectangle } from 'enta';
 import AppState from '../../state/AppState';
+import Colors from '../../theme/Colors';
 import Theme from '../../theme/Theme';
 
 export default class SearchField extends DisplayContainer {
@@ -9,7 +10,7 @@ export default class SearchField extends DisplayContainer {
         this.size(width, height);
         this.percentWidth = percentWidth;
         this.right = right;
-        this.backgroundColor = Theme.WHITE;
+        this.backgroundColor = Colors.WHITE;
         this.cornerSize = 8;
         this.verticalMiddle = 0;
         this.addFilter(Theme.INNER_SHADOW_3);
@@ -19,11 +20,11 @@ export default class SearchField extends DisplayContainer {
         });
         AppState.onlineStatus.addEventListener('changed', () => {
             if (AppState.onlineStatus.online) {
-                this.path.fillColor = Theme.BLUE_500;
-                this.input.style.color = Theme.BLUE_500.toString();
+                this.path.fillColor = Colors.BLUE_500;
+                this.input.style.color = Colors.BLUE_500.toString();
             } else {
-                this.path.fillColor = Theme.BLUE_GRAY_500;
-                this.input.style.color = Theme.BLUE_GRAY_500.toString();
+                this.path.fillColor = Colors.BLUE_GRAY_500;
+                this.input.style.color = Colors.BLUE_GRAY_500.toString();
             }
         });
         this.addElement(this.path);
@@ -37,7 +38,7 @@ export default class SearchField extends DisplayContainer {
             this._path.size(24, 24);
             this._path.viewBox = new Rectangle(0, 0, 24, 24);
             this._path.pathData = Theme.SEARCH;
-            this._path.fillColor = Theme.BLUE_500;
+            this._path.fillColor = Colors.BLUE_500;
             this._path.verticalMiddle = 0;
             this._path.left = 8;
         }
@@ -57,7 +58,7 @@ export default class SearchField extends DisplayContainer {
             this._input.style.height = this.height - 4 + 'px';
             this._input.style.fontFamily = Theme.TYPEFACE_BOLD.fontFamily;
             this._input.style.fontSize = 18 + 'px';
-            this._input.style.color = Theme.BLUE_500.toString();
+            this._input.style.color = Colors.BLUE_500.toString();
             this._input.style.fontWeight = '700';
             this._input.setAttribute('aria-label', 'Search')
         }

@@ -1,15 +1,15 @@
 import { IDisplayContainer, DisplayContainer, ILabelElement, VerticalLayout, HorizontalLayout } from 'enta';
 import Factory from '../../../../shared/Factory';
 import { CharacterSchema } from '../../../../../graphql/schema/CharacterSchema';
-import Theme from '../../../../../theme/Theme';
 import Chip from '../../../../shared/Chip';
+import Colors from '../../../../../theme/Colors';
 export default class MaxCharacterDetails extends DisplayContainer {
     public constructor() {
         super();
         this.name = 'MaxCharacterDetails';
         this.percentHeight = 100;
         this.layout = new VerticalLayout(32, 'left', 'middle');
-        this.location.textColor = Theme.BLUE_GRAY_500;
+        this.location.textColor = Colors.BLUE_GRAY_500;
         this.addElements([this.nameLabel, this.location, this.horizontalContainer]);
     }
 

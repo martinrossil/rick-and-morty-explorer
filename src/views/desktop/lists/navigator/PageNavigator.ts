@@ -3,6 +3,7 @@ import Factory from '../../../shared/Factory';
 import Theme from '../../../../theme/Theme';
 import NavigatorButton from './NavigatorButton';
 import AppState from '../../../../state/AppState';
+import Colors from '../../../../theme/Colors';
 
 export default class PageNavigator extends DisplayContainer {
     public constructor() {
@@ -12,7 +13,7 @@ export default class PageNavigator extends DisplayContainer {
         this.height = 56;
         this.bottom = -1;
         this.cornerSizeBottomLeft = this.cornerSizeBottomRight = 8;
-        this.backgroundColor = Theme.WHITE;
+        this.backgroundColor = Colors.WHITE;
         this.addFilter(Theme.BOX_SHADOW_4);
         this.addElement(this.container);
         this.infoLabel.horizontalCenter = 0;
@@ -22,11 +23,11 @@ export default class PageNavigator extends DisplayContainer {
         });
         AppState.onlineStatus.addEventListener('changed', () => {
             if (AppState.onlineStatus.online) {
-                this.previous.backgroundColor = Theme.BLUE_500;
-                this.next.backgroundColor = Theme.BLUE_500;
+                this.previous.backgroundColor = Colors.BLUE_500;
+                this.next.backgroundColor = Colors.BLUE_500;
             } else {
-                this.previous.backgroundColor = Theme.BLUE_GRAY_500;
-                this.next.backgroundColor = Theme.BLUE_GRAY_500;
+                this.previous.backgroundColor = Colors.BLUE_GRAY_500;
+                this.next.backgroundColor = Colors.BLUE_GRAY_500;
             }
         });
     }
@@ -44,8 +45,8 @@ export default class PageNavigator extends DisplayContainer {
         return this._container
     }
 
-    private previous: NavigatorButton = new NavigatorButton('PREVIOUS', Theme.ARROW_BACK, NaN, Theme.WHITE);
+    private previous: NavigatorButton = new NavigatorButton('PREVIOUS', Theme.ARROW_BACK, NaN, Colors.WHITE);
     private infoLabel: ILabelElement = Factory.boldLabel();
-    private next: NavigatorButton = new NavigatorButton('NEXT', Theme.ARROW_FORWARD, 0, Theme.WHITE);
+    private next: NavigatorButton = new NavigatorButton('NEXT', Theme.ARROW_FORWARD, 0, Colors.WHITE);
 }
 customElements.define('page-navigator', PageNavigator);
