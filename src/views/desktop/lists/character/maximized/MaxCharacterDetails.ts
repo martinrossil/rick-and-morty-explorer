@@ -43,7 +43,7 @@ export default class MaxCharacterDetails extends DisplayContainer {
         return this._horizontalContainer;
     }
 
-    private nameLabel: ILabelElement = Factory.boldLabel();
+    private nameLabel: ILabelElement = Factory.boldLabel(NaN, NaN, Colors.BLUE_GRAY_700);
     private location: ILabelElement = Factory.regularLabel();
     private gender: Chip = new Chip();
     private status: Chip = new Chip();

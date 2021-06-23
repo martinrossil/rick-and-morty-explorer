@@ -1,24 +1,24 @@
-import { ILabelElement, LabelElement, IDisplayElement, DisplayElement, TextAlign, IImageElement, ImageElement, IPathElement, PathElement } from 'enta';
+import { ILabelElement, LabelElement, IDisplayElement, DisplayElement, TextAlign, IColor } from 'enta';
 import Colors from '../../theme/Colors';
-import Theme from '../../theme/Theme';
+import Typography from '../../theme/Typography';
 
 export default class Factory {
     static regularLabel(percentWidth = NaN, width = NaN, textAlign: TextAlign = 'left'): ILabelElement {
         const labelElement: ILabelElement = new LabelElement();
         labelElement.percentWidth = percentWidth;
         labelElement.width = width;
-        labelElement.typeFace = Theme.TYPEFACE_REGULAR;
+        labelElement.typeFace = Typography.TYPEFACE_REGULAR;
         labelElement.textColor = Colors.BLUE_GRAY_700;
         labelElement.textAlign = textAlign;
         return labelElement;
     }
 
-    static boldLabel(percentWidth = NaN, width = NaN): ILabelElement {
+    static boldLabel(percentWidth = NaN, width = NaN, textColor: IColor = Colors.BLUE_GRAY_500): ILabelElement {
         const labelElement: ILabelElement = new LabelElement();
         labelElement.percentWidth = percentWidth;
         labelElement.width = width;
-        labelElement.typeFace = Theme.TYPEFACE_BOLD;
-        labelElement.textColor = Colors.BLUE_GRAY_500;
+        labelElement.typeFace = Typography.TYPEFACE_BOLD;
+        labelElement.textColor = textColor;
         labelElement.fontWeight = 700;
         return labelElement;
     }
@@ -28,7 +28,7 @@ export default class Factory {
         labelElement.text = 'Rick and Morty Explorer';
         labelElement.fontSize = 28;
         labelElement.textColor = Colors.WHITE;
-        labelElement.typeFace = Theme.TYPEFACE_BOLD;
+        labelElement.typeFace = Typography.TYPEFACE_BOLD;
         labelElement.fontWeight = 700;
         labelElement.verticalMiddle = 0;
         labelElement.letterSpacing = 1;
@@ -41,7 +41,7 @@ export default class Factory {
         labelElement.percentWidth = percentWidth;
         labelElement.text = text;
         labelElement.fontSize = 14;
-        labelElement.typeFace = Theme.TYPEFACE_BOLD;
+        labelElement.typeFace = Typography.TYPEFACE_BOLD;
         labelElement.textColor = Colors.BLUE_GRAY_500;
         labelElement.textAlign = textAlign;
         labelElement.fontWeight = 700;
@@ -55,55 +55,5 @@ export default class Factory {
         line.backgroundColor = Colors.BLUE_GRAY_200;
         line.bottom = 0;
         return line;
-    }
-
-    static ring(diameter: number, strokeWidth: number): IPathElement {
-        const ring: IPathElement = new PathElement();
-        const corner = diameter * 0.5;
-        ring.size(diameter, diameter);
-        let d = '';
-        d += 'M 0 ' + corner + ' ';
-        d += 'A ' + corner + ' ' + corner + ' 0 0 1 ' + corner + ' 0 ';
-        d += 'L ' + (diameter - corner) + ' 0 ';
-        d += 'A ' + corner + ' ' + corner + ' 1 0 1 ' + diameter + ' ' + corner + ' ';
-        d += 'L ' + diameter + ' ' + (diameter - corner) + ' ';
-        d += 'A ' + corner + ' ' + corner + ' 1 0 1 ' + (diameter - corner) + ' ' + diameter + ' ';
-        d += 'L ' + corner + ' ' + diameter + ' ';
-        d += 'A ' + corner + ' ' + corner + ' 0 0 1 ' + '0 ' + (diameter - corner) + ' ';
-        d += 'Z';
-        ring.pathData = d;
-        ring.strokeColor = Colors.BLUE_500;
-        ring.fillColor = Colors.TRANSPARENT;
-        ring.strokeWidth = strokeWidth;
-        return ring;
-    }
-
-    static shadowRing(diameter: number): IDisplayElement {
-        const shadowRing: IDisplayElement = new DisplayElement();
-        shadowRing.size(diameter, diameter);
-        shadowRing.cornerSize = diameter * 0.5;
-        shadowRing.addFilter(Theme.INNER_SHADOW_1);
-        shadowRing.addFilter(Theme.INNER_SHADOW_2);
-        return shadowRing;
-    }
-
-    static profileImage(size: number, corner: number): IImageElement {
-        const image: IImageElement = new ImageElement();
-        image.backgroundColor = Colors.BLUE_GRAY_200;
-        image.size(size, size);
-        image.cornerSize = corner;
-        image.clip = 'hidden';
-        return image;
-    }
-
-    static shadowBox(): IDisplayElement {
-        const box: IDisplayElement = new DisplayElement();
-        box.enabled = false;
-        box.percentWidth = 100;
-        box.percentHeight = 100;
-        box.cornerSize = 8;
-        box.addFilter(Theme.INNER_SHADOW_3);
-        box.addFilter(Theme.INNER_SHADOW_4);
-        return box;
     }
 }
