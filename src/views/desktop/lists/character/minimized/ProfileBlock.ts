@@ -1,8 +1,8 @@
-import { DisplayContainer, IImageElement, ILabelElement, HorizontalLayout } from 'enta';
+import { DisplayContainer, ILabelElement, HorizontalLayout } from 'enta';
 import Factory from '../../../../shared/Factory';
 import { CharacterSchema } from '../../../../../graphql/schema/CharacterSchema';
-import Theme from '../../../../../theme/Theme';
 import Colors from '../../../../../theme/Colors';
+import Avatar from '../../../../shared/Avatar';
 
 export default class ProfileBlock extends DisplayContainer {
     public constructor() {
@@ -11,7 +11,7 @@ export default class ProfileBlock extends DisplayContainer {
         this.percentWidth = 100;
         this.height = 40;
         this.layout = new HorizontalLayout(16, 'left', 'middle');
-        this.addElements([this.profile, this.characterLabel]);
+        this.addElements([this.avatar, this.characterLabel]);
     }
 
     private _character: CharacterSchema | null = null;
@@ -21,9 +21,8 @@ export default class ProfileBlock extends DisplayContainer {
         }
         this._character = value;
         if (value) {
+            this.avatar.character = value;
             this.characterLabel.text = value.name;
-            this.profile.source = Theme.AVATAR_URL + value.id + '.jpeg';
-            this.profile.alt = value.name;
         }
     }
 
@@ -31,16 +30,7 @@ export default class ProfileBlock extends DisplayContainer {
         return this._character;
     }
 
-    private profile: IImageElement = Factory.profileImage(40, 20);
-
-    private _characterLabel!: ILabelElement;
-    private get characterLabel(): ILabelElement {
-        if (!this._characterLabel) {
-            this._characterLabel = Factory.boldLabel(100);
-            this._characterLabel.percentWidth = 100;
-            this._characterLabel.textColor = Colors.BLUE_GRAY_700;
-        }
-        return this._characterLabel;
-    }
+    private avatar: Avatar = new Avatar(40, 2);
+    private characterLabel: ILabelElement = Factory.boldLabel(100, NaN, Colors.BLUE_GRAY_700);
 }
 customElements.define('profile-block', ProfileBlock);

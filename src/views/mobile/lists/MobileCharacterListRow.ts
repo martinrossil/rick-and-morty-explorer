@@ -1,10 +1,11 @@
-import { ArrayCollection, DisplayContainer, HorizontalLayout, IDisplayContainer, IDisplayElement, IImageElement, ILabelElement, IPathElement, ItemRenderer, VerticalLayout, Cursor } from 'enta';
+import { ArrayCollection, DisplayContainer, HorizontalLayout, IDisplayContainer, ILabelElement, ItemRenderer, VerticalLayout, Cursor } from 'enta';
 import { CharacterSchema } from '../../../graphql/schema/CharacterSchema';
-import Theme from '../../../theme/Theme';
 import Factory from '../../shared/Factory';
 import Chip from '../../shared/Chip';
 import MobileEpisodesList from './MobileEpisodesList';
 import Colors from '../../../theme/Colors';
+import Avatar from '../../shared/Avatar';
+import Shadows from '../../../theme/Shadows';
 
 export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema> {
     public constructor() {
@@ -21,7 +22,7 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
         this.status.visible = false;
         this.location.textColor = Colors.BLUE_GRAY_500;
         this.layout = new VerticalLayout(16);
-        this.addFilter(Theme.BOX_SHADOW_2);
+        this.addFilter(Shadows.BOX_SHADOW_2);
         this.addElements([this.characterBlock, this.mobileEpisodesList]);
     }
 
@@ -31,15 +32,14 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
             this._characterBlock = new DisplayContainer();
             this._characterBlock.percentWidth = 100;
             this._characterBlock.layout = new HorizontalLayout(16);
-            this._characterBlock.addElements([this.profileBlock, this.textBlock]);
+            this._characterBlock.addElements([this.avatar, this.textBlock]);
         }
         return this._characterBlock;
     }
 
     protected dataChanged(): void {
         if (this.data) {
-            this.profile.source = Theme.AVATAR_URL + this.data.id + '.jpeg';
-            this.profile.alt = this.data.name;
+            this.avatar.character = this.data;
             this.characterLabel.text = this.data.name;
             this.location.text = this.data.location.name;
             this.gender.text = this.data.gender;
@@ -49,14 +49,9 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
 
     protected selectedChanged(): void {
         if (this.selected) {
-            this.profileBlock.size(96, 96);
+            this.avatar.size(96, 96);
+            this.avatar.strokeWidth = 3;
             this.height = NaN;
-            this.profile.size(96, 96);
-            this.profile.cornerSize = 48;
-            this.shadowRing.size(96, 96);
-            this.shadowRing.cornerSize = 48;
-            this.profileRing.visible = false;
-            this.profileRingLarge.visible = true;
             this.textBlockLayout.verticalGap = 16;
             this.gender.visible = true;
             this.status.visible = true;
@@ -65,14 +60,9 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
                 this.mobileEpisodesList.dataProvider = new ArrayCollection(this.data.episode);
             }
         } else {
-            this.profileBlock.size(52, 52);
+            this.avatar.size(52, 52);
+            this.avatar.strokeWidth = 1;
             this.height = 80;
-            this.profile.size(52, 52);
-            this.profile.cornerSize = 26;
-            this.shadowRing.size(52, 52);
-            this.shadowRing.cornerSize = 26;
-            this.profileRing.visible = true;
-            this.profileRingLarge.visible = false;
             this.textBlockLayout.verticalGap = 8;
             this.gender.visible = false;
             this.status.visible = false;
@@ -94,18 +84,6 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
 
     private textBlockLayout: VerticalLayout = new VerticalLayout(8);
 
-    private _profileBlock!: IDisplayContainer;
-    private get profileBlock(): IDisplayContainer {
-        if (!this._profileBlock) {
-            this._profileBlock = new DisplayContainer();
-            this._profileBlock.size(52, 52);
-            this._profileBlock.cornerSize = 26;
-            this.profileRingLarge.visible = false;
-            this._profileBlock.addElements([this.profile, this.shadowRing, this.profileRing, this.profileRingLarge]);
-        }
-        return this._profileBlock;
-    }
-
     private _chipBlock!: IDisplayContainer;
     private get chipBlock(): IDisplayContainer {
         if (!this._chipBlock) {
@@ -118,24 +96,11 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
         return this._chipBlock;
     }
 
-    private profile: IImageElement = Factory.profileImage(52, 52);
-    private shadowRing: IDisplayElement = Factory.shadowRing(52);
-    private profileRing: IPathElement = Factory.ring(52, 1);
-    private profileRingLarge: IPathElement = Factory.ring(96, 3);
+    private avatar: Avatar = new Avatar(52, 1);
     private location: ILabelElement = Factory.regularLabel(100);
     private gender: Chip = new Chip();
     private status: Chip = new Chip();
-
-    private _characterLabel!: ILabelElement;
-    private get characterLabel(): ILabelElement {
-        if (!this._characterLabel) {
-            this._characterLabel = Factory.boldLabel(100);
-            this._characterLabel.textColor = Colors.BLUE_GRAY_700;
-            this._characterLabel.percentWidth = 100;
-        }
-        return this._characterLabel;
-    }
-
+    private characterLabel: ILabelElement = Factory.boldLabel(100, NaN, Colors.BLUE_GRAY_700);
     private mobileEpisodesList: MobileEpisodesList = new MobileEpisodesList();
 }
 customElements.define('mobile-character-list-row', MobileCharacterListRow);

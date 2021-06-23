@@ -1,8 +1,8 @@
 import { DisplayContainer, HorizontalLayout } from 'enta';
 import { CharacterSchema } from '../../../../../graphql/schema/CharacterSchema';
+import Avatar from '../../../../shared/Avatar';
 import EpisodesList from '../../episodes/EpisodesList';
 import MaxCharacterDetails from './MaxCharacterDetails';
-import MaxProfileBlock from './MaxProfileBlock';
 
 export default class MaximizedRow extends DisplayContainer {
     public constructor() {
@@ -13,15 +13,15 @@ export default class MaximizedRow extends DisplayContainer {
         this.height = 232;
         this.padding = 16;
         this.layout = new HorizontalLayout(16);
-        this.addElements([this.maxProfileBlock, this.maxCharacterDetails, this.episodesList]);
+        this.addElements([this.avatar, this.maxCharacterDetails, this.episodesList]);
     }
 
     private _character: CharacterSchema | null = null;
     public set character(value: CharacterSchema | null) {
         this._character = value;
-        this.maxProfileBlock.character = value;
-        this.maxCharacterDetails.character = value;
         if (value) {
+            this.avatar.character = value;
+            this.maxCharacterDetails.character = value;
             this.episodesList.episodes = value.episode;
         }
     }
@@ -30,7 +30,7 @@ export default class MaximizedRow extends DisplayContainer {
         return this._character;
     }
 
-    private maxProfileBlock: MaxProfileBlock = new MaxProfileBlock();
+    private avatar: Avatar = new Avatar(200, 4);
     private maxCharacterDetails: MaxCharacterDetails = new MaxCharacterDetails();
     private episodesList: EpisodesList = new EpisodesList();
 }
