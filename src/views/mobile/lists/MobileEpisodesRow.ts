@@ -1,7 +1,6 @@
 import { DisplayContainer, HorizontalLayout, IDisplayContainer, ILabelElement, ItemRenderer } from 'enta';
 import Factory from '../../shared/Factory';
 import { EpisodeSchema } from '../../../graphql/schema/EpisodeSchema';
-import Theme from '../../../theme/Theme';
 import Colors from '../../../theme/Colors';
 
 export default class MobileEpisodesRow extends ItemRenderer<EpisodeSchema> {

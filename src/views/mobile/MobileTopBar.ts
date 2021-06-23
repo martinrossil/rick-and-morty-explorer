@@ -1,7 +1,7 @@
 import { DisplayContainer } from 'enta';
 import AppState from '../../state/AppState';
 import Colors from '../../theme/Colors';
-import Theme from '../../theme/Theme';
+import Shadows from '../../theme/Shadows';
 import SearchField from '../shared/SearchField';
 
 export default class MobileTopBar extends DisplayContainer {
@@ -11,8 +11,8 @@ export default class MobileTopBar extends DisplayContainer {
         this.percentWidth = 100;
         this.height = 56;
         this.paddingX = 16;
-        this.addFilter(Theme.BOX_SHADOW_1);
-        this.addFilter(Theme.BOX_SHADOW_2);
+        this.addFilter(Shadows.BOX_SHADOW_1);
+        this.addFilter(Shadows.BOX_SHADOW_2);
         this.backgroundColor = Colors.BLUE_500;
         this.addElements([new SearchField(NaN, 100, 40)]);
         AppState.onlineStatus.addEventListener('changed', () => {

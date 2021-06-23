@@ -1,7 +1,9 @@
 import { DisplayContainer, IPathElement, PathElement, Rectangle } from 'enta';
 import AppState from '../../state/AppState';
 import Colors from '../../theme/Colors';
-import Theme from '../../theme/Theme';
+import Icons from '../../theme/Icons';
+import Shadows from '../../theme/Shadows';
+import Typography from '../../theme/Typography';
 
 export default class SearchField extends DisplayContainer {
     public constructor(width = NaN, percentWidth = NaN, height = NaN, right = NaN) {
@@ -13,8 +15,8 @@ export default class SearchField extends DisplayContainer {
         this.backgroundColor = Colors.WHITE;
         this.cornerSize = 8;
         this.verticalMiddle = 0;
-        this.addFilter(Theme.INNER_SHADOW_3);
-        this.addFilter(Theme.INNER_SHADOW_4);
+        this.addFilter(Shadows.INNER_SHADOW_3);
+        this.addFilter(Shadows.INNER_SHADOW_4);
         this.input.addEventListener('input', () => {
             this.dispatch('SEARCH', this.input.value, true);
         });
@@ -37,7 +39,7 @@ export default class SearchField extends DisplayContainer {
             this._path = new PathElement();
             this._path.size(24, 24);
             this._path.viewBox = new Rectangle(0, 0, 24, 24);
-            this._path.pathData = Theme.SEARCH;
+            this._path.pathData = Icons.SEARCH;
             this._path.fillColor = Colors.BLUE_500;
             this._path.verticalMiddle = 0;
             this._path.left = 8;
@@ -56,7 +58,7 @@ export default class SearchField extends DisplayContainer {
             this._input.style.transform = 'translateX(40px)';
             this._input.style.width = this.width - 64 + 'px';
             this._input.style.height = this.height - 4 + 'px';
-            this._input.style.fontFamily = Theme.TYPEFACE_BOLD.fontFamily;
+            this._input.style.fontFamily = Typography.TYPEFACE_BOLD.fontFamily;
             this._input.style.fontSize = 18 + 'px';
             this._input.style.color = Colors.BLUE_500.toString();
             this._input.style.fontWeight = '700';

@@ -1,9 +1,10 @@
 import { IDisplayContainer, DisplayContainer, ILabelElement } from 'enta';
 import Factory from '../../../shared/Factory';
-import Theme from '../../../../theme/Theme';
 import NavigatorButton from './NavigatorButton';
 import AppState from '../../../../state/AppState';
 import Colors from '../../../../theme/Colors';
+import Icons from '../../../../theme/Icons';
+import Shadows from '../../../../theme/Shadows';
 
 export default class PageNavigator extends DisplayContainer {
     public constructor() {
@@ -14,7 +15,7 @@ export default class PageNavigator extends DisplayContainer {
         this.bottom = -1;
         this.cornerSizeBottomLeft = this.cornerSizeBottomRight = 8;
         this.backgroundColor = Colors.WHITE;
-        this.addFilter(Theme.BOX_SHADOW_4);
+        this.addFilter(Shadows.BOX_SHADOW_4);
         this.addElement(this.container);
         this.infoLabel.horizontalCenter = 0;
         this.infoLabel.verticalMiddle = 0;
@@ -45,8 +46,8 @@ export default class PageNavigator extends DisplayContainer {
         return this._container
     }
 
-    private previous: NavigatorButton = new NavigatorButton('PREVIOUS', Theme.ARROW_BACK, NaN, Colors.WHITE);
+    private previous: NavigatorButton = new NavigatorButton('PREVIOUS', Icons.ARROW_BACK, NaN, Colors.WHITE);
     private infoLabel: ILabelElement = Factory.boldLabel();
-    private next: NavigatorButton = new NavigatorButton('NEXT', Theme.ARROW_FORWARD, 0, Colors.WHITE);
+    private next: NavigatorButton = new NavigatorButton('NEXT', Icons.ARROW_FORWARD, 0, Colors.WHITE);
 }
 customElements.define('page-navigator', PageNavigator);

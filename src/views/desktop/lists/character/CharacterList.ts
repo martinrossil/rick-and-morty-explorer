@@ -2,10 +2,10 @@ import { VerticalLayout, DisplayContainer, IDisplayContainer, IList, List } from
 import { CharacterSchema } from '../../../../graphql/schema/CharacterSchema'
 import CharacterListRow from './CharacterListRow';
 import AppState from '../../../../state/AppState';
-import Theme from '../../../../theme/Theme';
 import CharacterListHeader from './CharacterListHeader';
 import PageNavigator from '../navigator/PageNavigator';
 import Colors from '../../../../theme/Colors';
+import Shadows from '../../../../theme/Shadows';
 
 export default class CharacterList extends DisplayContainer {
     public constructor() {
@@ -26,8 +26,8 @@ export default class CharacterList extends DisplayContainer {
             this._container.percentWidth = this._container.percentHeight = 100;
             this._container.backgroundColor = Colors.WHITE;
             this._container.cornerSize = 8;
-            this._container.addFilter(Theme.BOX_SHADOW_1);
-            this._container.addFilter(Theme.BOX_SHADOW_2);
+            this._container.addFilter(Shadows.BOX_SHADOW_1);
+            this._container.addFilter(Shadows.BOX_SHADOW_2);
             this._container.addElements([this.list, new CharacterListHeader(), new PageNavigator()]);
         }
         return this._container;

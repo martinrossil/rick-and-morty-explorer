@@ -1,9 +1,10 @@
 import { DisplayContainer, IDisplayContainer, ILabelElement } from 'enta';
 import Factory from '../shared/Factory';
 import AppState from '../../state/AppState';
-import Theme from '../../theme/Theme';
 import NavigatorButton from '../desktop/lists/navigator/NavigatorButton';
 import Colors from '../../theme/Colors';
+import Icons from '../../theme/Icons';
+import Shadows from '../../theme/Shadows';
 
 export default class MobilePageNavigator extends DisplayContainer {
     public constructor() {
@@ -12,7 +13,7 @@ export default class MobilePageNavigator extends DisplayContainer {
         this.percentWidth = 100;
         this.height = 56;
         this.bottom = -1;
-        this.addFilter(Theme.BOX_SHADOW_4);
+        this.addFilter(Shadows.BOX_SHADOW_4);
         this.backgroundColor = Colors.BLUE_500;
         this.addElement(this.container);
         this.infoLabel.horizontalCenter = 0;
@@ -45,8 +46,8 @@ export default class MobilePageNavigator extends DisplayContainer {
         return this._container
     }
 
-    private previous: NavigatorButton = new NavigatorButton('PREVIOUS', Theme.ARROW_BACK, NaN, Colors.BLUE_500);
+    private previous: NavigatorButton = new NavigatorButton('PREVIOUS', Icons.ARROW_BACK, NaN, Colors.BLUE_500);
     private infoLabel: ILabelElement = Factory.boldLabel();
-    private next: NavigatorButton = new NavigatorButton('NEXT', Theme.ARROW_FORWARD, 0, Colors.BLUE_500);
+    private next: NavigatorButton = new NavigatorButton('NEXT', Icons.ARROW_FORWARD, 0, Colors.BLUE_500);
 }
 customElements.define('mobile-page-navigator', MobilePageNavigator);

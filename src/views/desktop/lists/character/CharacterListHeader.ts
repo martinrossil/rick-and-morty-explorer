@@ -1,6 +1,6 @@
 import { DisplayContainer, HorizontalLayout } from 'enta';
 import Colors from '../../../../theme/Colors';
-import Theme from '../../../../theme/Theme';
+import Shadows from '../../../../theme/Shadows';
 import Factory from '../../../shared/Factory';
 
 export default class CharacterListHeader extends DisplayContainer {
@@ -13,7 +13,7 @@ export default class CharacterListHeader extends DisplayContainer {
         this.backgroundColor = Colors.BLUE_GRAY_50;
         this.cornerSizeTopLeft = this.cornerSizeTopRight = 8;
         this.layout = new HorizontalLayout(32, 'left', 'middle');
-        this.addFilter(Theme.BOX_SHADOW_2);
+        this.addFilter(Shadows.BOX_SHADOW_2);
         this.addElements([Factory.headerLabel('NAME'),
                             Factory.headerLabel('GENDER', NaN, 70, 'center'),
                             Factory.headerLabel('LOCATION'),

@@ -1,6 +1,7 @@
-import { ItemRenderer, ILabelElement, HorizontalLayout } from 'enta';
+import { ItemRenderer, ILabelElement, HorizontalLayout, Color } from 'enta';
 import Factory from '../../../shared/Factory';
 import { EpisodeSchema } from '../../../../graphql/schema/EpisodeSchema';
+import Colors from '../../../../theme/Colors';
 
 export default class EpisodesRow extends ItemRenderer<EpisodeSchema> {
     public constructor() {
@@ -23,7 +24,7 @@ export default class EpisodesRow extends ItemRenderer<EpisodeSchema> {
         }
     }
 
-    private nameLabel: ILabelElement = Factory.boldLabel(100);
+    private nameLabel: ILabelElement = Factory.boldLabel(100, NaN, Colors.BLUE_GRAY_700);
     private season: ILabelElement = Factory.regularLabel(NaN, 100, 'left');
     private episode: ILabelElement = Factory.regularLabel(NaN, 74, 'left');
 }
