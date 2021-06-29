@@ -1,4 +1,4 @@
-import { ItemRenderer, ILabelElement, HorizontalLayout, Color } from 'enta';
+import { ItemRenderer, ILabelElement, HorizontalLayout } from 'enta';
 import Factory from '../../../shared/Factory';
 import { EpisodeSchema } from '../../../../graphql/schema/EpisodeSchema';
 import Colors from '../../../../theme/Colors';

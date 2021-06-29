@@ -4,7 +4,12 @@ import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 
 export default [{
-        input: './src/RickAndMortyExplorer.ts',
+        input: ['./src/RickAndMortyExplorer.ts',
+                './src/views/desktop/lists/character/CharacterList.ts',
+                './src/views/desktop/TopBar.ts',
+                './src/views/mobile/lists/MobileCharacterList.ts',
+                './src/views/mobile/MobileTopBar.ts',
+                './src/views/mobile/MobilePageNavigator.ts'],
         plugins: [
             typescript({ tsconfig: 'tsconfig.development.json' }),
             resolve(),
@@ -18,7 +23,8 @@ export default [{
             })
         ],
         output: {
-            file: './development/RickAndMortyExplorer.js',
+            entryFileNames: '[name].esnext.js',
+            dir: './development',
             format: 'esm',
             sourcemap: 'inline'
         }

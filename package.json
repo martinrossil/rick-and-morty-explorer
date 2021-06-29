@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "rollup -c rollup.development.js --watch",
-    "build": "rollup -c rollup.production.js"
+    "lint": "eslint src/**/*",
+    "build:ie11": "rollup -c rollup.production.ie11.js",
+    "build:esm": "rollup -c rollup.production.js",
+    "build": "npm run build:esm && npm run build:ie11"
   },
   "repository": {
     "type": "git",

@@ -1,10 +1,6 @@
 import { IState, Machine, State } from 'enta';
 import RickAndMortyExplorer from '../RickAndMortyExplorer';
-import CharacterList from '../views/desktop/lists/character/CharacterList';
-import MobileCharacterList from '../views/mobile/lists/MobileCharacterList';
-import MobilePageNavigator from '../views/mobile/MobilePageNavigator';
-import MobileTopBar from '../views/mobile/MobileTopBar';
-import TopBar from '../views/desktop/TopBar';
+import Factory from '../views/shared/Factory';
 
 export default class LayoutMachine extends Machine<RickAndMortyExplorer> {
     public constructor(host: RickAndMortyExplorer) {
@@ -53,9 +49,12 @@ export default class LayoutMachine extends Machine<RickAndMortyExplorer> {
         return this._mobile;
     }
 
-    private onMobile(): void {
+    private async onMobile(): Promise<void> {
         this.host.removeElements();
-        this.host.addElements([this.mobileCharacterList, this.mobileTopBar, this.mobilePageNavigator]);
+        this.host.addElements([await Factory.mobileCharacterList(),
+                                await Factory.mobileTopBar(),
+                                await Factory.mobilePageNavigator()
+                            ]);
     }
 
     private _desktop!: IState;
@@ -68,48 +67,10 @@ export default class LayoutMachine extends Machine<RickAndMortyExplorer> {
         return this._desktop;
     }
 
-    private onDesktop(): void {
+    private async onDesktop(): Promise<void> {
         this.host.removeElements();
-        this.host.addElements([this.characterList, this.topBar]);
-    }
-
-    private _characterList!: CharacterList;
-    private get characterList(): CharacterList {
-        if (!this._characterList) {
-            this._characterList = new CharacterList();
-        }
-        return this._characterList;
-    }
-
-    private _topBar!: TopBar;
-    private get topBar(): TopBar {
-        if (!this._topBar) {
-            this._topBar = new TopBar();
-        }
-        return this._topBar;
-    }
-
-    private _mobileCharacterList!: MobileCharacterList;
-    private get mobileCharacterList(): MobileCharacterList {
-        if (!this._mobileCharacterList) {
-            this._mobileCharacterList = new MobileCharacterList();
-        }
-        return this._mobileCharacterList;
-    }
-
-    private _mobileTopBar!: MobileTopBar;
-    private get mobileTopBar(): MobileTopBar {
-        if (!this._mobileTopBar) {
-            this._mobileTopBar = new MobileTopBar();
-        }
-        return this._mobileTopBar;
-    }
-
-    private _mobilePageNavigator!: MobilePageNavigator;
-    private get mobilePageNavigator(): MobilePageNavigator {
-        if (!this._mobilePageNavigator) {
-            this._mobilePageNavigator = new MobilePageNavigator();
-        }
-        return this._mobilePageNavigator;
+        this.host.addElements([await Factory.characterList(),
+                                await Factory.topBar()
+                            ]);
     }
 }
