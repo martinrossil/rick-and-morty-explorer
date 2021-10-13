@@ -23,7 +23,7 @@ export default {
         plugins: [
             compiler({
                 language_in: 'ECMASCRIPT_NEXT',
-                compilation_level: 'SIMPLE',
+                compilation_level: 'ADVANCED',
                 language_out: 'ECMASCRIPT5'
             })
         ]
