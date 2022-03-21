@@ -1,6 +1,4 @@
 node_modules/
 development/
 public/
-.firebase/
 package-lock.json
-coverage
