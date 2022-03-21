@@ -1,6 +1,6 @@
 {
   "name": "rick-and-morty-explorer",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Web application demo, that uses the Rick and Morty REST API",
   "main": "index.js",
   "scripts": {
