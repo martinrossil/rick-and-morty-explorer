@@ -2,7 +2,7 @@ import { characterPage } from './Queries';
 import { CharacterPageSchema } from './schema/CharacterPageSchema';
 
 export default class GraphQL {
-    private static BASE_URL = 'https://rickandmortyapi.com/graphql/';
+    private static BASE_URL = 'https://rick-and-morty-api.graphcdn.app';
 
     private static cache: Map<string, CharacterPageSchema> = new Map();
 
@@ -26,9 +26,7 @@ export default class GraphQL {
         return {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-                'Cache-Control': 'max-age=604800',
-                Pragma: 'max-age=604800'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 query: characterPage(name, page)
