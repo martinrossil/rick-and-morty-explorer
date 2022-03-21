@@ -2,7 +2,7 @@
 Web application demo, that uses the Rick and Morty GraphQL API
 
 ## Live application
-https://rick-and-morty-explorer.web.app/
+https://rick-and-morty-explorer.pages.dev
 
 ### Application logic StateChart
-https://xstate.js.org/viz/?gist=db291433e1a7fcd0b028cac354efa1eb
+https://stately.ai/viz/6924c3c4-0ee5-415c-b0c8-dc281f108c70
