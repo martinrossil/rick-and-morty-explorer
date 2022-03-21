@@ -1,4 +1,4 @@
-import { DisplayContainer, HorizontalLayout, ILabelElement, Cursor, IDisplayContainer } from 'enta';
+import { DisplayContainer, HorizontalLayout, ILabelElement, IDisplayContainer } from 'enta';
 import Factory from '../../../../shared/Factory';
 import { CharacterSchema } from '../../../../../graphql/schema/CharacterSchema';
 import Chip from '../../../../shared/Chip';
@@ -11,7 +11,7 @@ export default class MinimizedRow extends DisplayContainer {
         this.percentWidth = 100;
         this.height = 72;
         this.paddingX = 16;
-        this.cursor = Cursor.POINTER;
+        this.cursor = 'pointer';
         this.layout = new HorizontalLayout(32, 'left', 'middle');
         this.addElements([this.profile, this.gender, this.location, this.species, this.status, this.episodesContainer]);
     }
@@ -42,7 +42,7 @@ export default class MinimizedRow extends DisplayContainer {
             this._episodesContainer = new DisplayContainer();
             this._episodesContainer.size(70, 72);
             this.episodes.right = 0;
-            this.episodes.verticalMiddle = 0;
+            this.episodes.alignVertical = 'middle';
             this._episodesContainer.addElement(this.episodes);
         }
         return this._episodesContainer;

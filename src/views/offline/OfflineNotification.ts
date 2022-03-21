@@ -23,8 +23,8 @@ export default class OfflineNotification extends DisplayContainer {
             this._modal.backgroundColor = Colors.WHITE;
             this._modal.addFilter(Shadows.BOX_SHADOW_1);
             this._modal.addFilter(Shadows.BOX_SHADOW_2);
-            this._modal.horizontalCenter = 0;
-            this._modal.verticalMiddle = 0;
+            this._modal.alignHorizontal = 'center';
+            this._modal.alignVertical = 'middle';
             this._modal.layout = new VerticalLayout(24);
             this._modal.addElements([this.bodyContainer, this.bottomBar]);
         }

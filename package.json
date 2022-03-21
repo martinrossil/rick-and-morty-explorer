@@ -48,6 +48,6 @@
     "typescript": "4.2.4"
   },
   "dependencies": {
-    "enta": "^0.4.3"
+    "enta": "^0.8.5"
   }
 }

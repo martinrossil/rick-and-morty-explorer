@@ -1,6 +1,7 @@
-import { DisplayContainer, ILabelElement, LabelElement, IColor } from 'enta';
+import { DisplayContainer, ILabelElement, IColor } from 'enta';
 import Colors from '../../theme/Colors';
 import Typography from '../../theme/Typography';
+import LabelExtended from './LabelExtended';
 
 export default class Chip extends DisplayContainer {
     public constructor() {
@@ -86,12 +87,12 @@ export default class Chip extends DisplayContainer {
     private _textLabel!: ILabelElement;
     private get textLabel(): ILabelElement {
         if (!this._textLabel) {
-            this._textLabel = new LabelElement();
+            this._textLabel = new LabelExtended();
             this._textLabel.typeFace = Typography.TYPEFACE_BOLD;
             this._textLabel.fontSize = 12;
             this._textLabel.fontWeight = 700;
-            this._textLabel.horizontalCenter = 0;
-            this._textLabel.verticalMiddle = 0;
+            this._textLabel.alignHorizontal = 'center';
+            this._textLabel.alignVertical = 'middle';
             this._textLabel.textColor = this.textColor;
         }
         return this._textLabel;

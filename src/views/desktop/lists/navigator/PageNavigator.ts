@@ -17,8 +17,8 @@ export default class PageNavigator extends DisplayContainer {
         this.backgroundColor = Colors.WHITE;
         this.addFilter(Shadows.BOX_SHADOW_4);
         this.addElement(this.container);
-        this.infoLabel.horizontalCenter = 0;
-        this.infoLabel.verticalMiddle = 0;
+        this.infoLabel.alignHorizontal = 'center';
+        this.infoLabel.alignVertical = 'middle';
         AppState.pageInfo.addEventListener('changed', () => {
             this.infoLabel.text = 'Page ' + AppState.pageInfo.page + ' of ' + AppState.pageInfo.pages;
         });
@@ -37,7 +37,7 @@ export default class PageNavigator extends DisplayContainer {
     private get container(): IDisplayContainer {
         if (!this._container) {
             this._container = new DisplayContainer();
-            this._container.horizontalCenter = 0;
+            this._container.alignHorizontal = 'center';
             this._container.size(200, 56);
             this._container.addElements([this.previous,
                                         this.infoLabel,

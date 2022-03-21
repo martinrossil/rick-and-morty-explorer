@@ -1,9 +1,10 @@
-import { DisplayContainer, IPathElement, PathElement, Rectangle } from 'enta';
+import { DisplayContainer, IPathElement, ViewBox } from 'enta';
 import AppState from '../../state/AppState';
 import Colors from '../../theme/Colors';
 import Icons from '../../theme/Icons';
 import Shadows from '../../theme/Shadows';
 import Typography from '../../theme/Typography';
+import PathExtended from './PathExtended';
 
 export default class SearchField extends DisplayContainer {
     public constructor(width = NaN, percentWidth = NaN, height = NaN, right = NaN) {
@@ -14,7 +15,7 @@ export default class SearchField extends DisplayContainer {
         this.right = right;
         this.backgroundColor = Colors.WHITE;
         this.cornerSize = 8;
-        this.verticalMiddle = 0;
+        this.alignVertical = 'middle';
         this.addFilter(Shadows.INNER_SHADOW_3);
         this.addFilter(Shadows.INNER_SHADOW_4);
         this.input.addEventListener('input', () => {
@@ -36,12 +37,12 @@ export default class SearchField extends DisplayContainer {
     private _path!: IPathElement;
     private get path(): IPathElement {
         if (!this._path) {
-            this._path = new PathElement();
+            this._path = new PathExtended();
             this._path.size(24, 24);
-            this._path.viewBox = new Rectangle(0, 0, 24, 24);
+            this._path.viewBox = new ViewBox(0, 0, 24, 24);
             this._path.pathData = Icons.SEARCH;
             this._path.fillColor = Colors.BLUE_500;
-            this._path.verticalMiddle = 0;
+            this._path.alignVertical = 'middle';
             this._path.left = 8;
         }
         return this._path;

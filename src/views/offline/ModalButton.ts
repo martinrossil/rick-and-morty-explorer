@@ -1,12 +1,12 @@
-import { DisplayContainer, ILabelElement, IInteractive, TouchMachine, Cursor } from 'enta';
+import { DisplayContainer, ILabelElement, IMouseTouch, Cursor, MouseTouchMachine } from 'enta';
 import Factory from '../shared/Factory';
 import Colors from '../../theme/Colors';
 
-export default class ModalButton extends DisplayContainer implements IInteractive {
+export default class ModalButton extends DisplayContainer implements IMouseTouch {
     public constructor() {
         super();
         this.name = 'ModalButton';
-        this.cursor = Cursor.POINTER;
+        this.cursor = 'pointer';
         this.cornerSize = 4;
         this.label.text = 'GOT IT :)';
         this.label.letterSpacing = 1;
@@ -18,22 +18,22 @@ export default class ModalButton extends DisplayContainer implements IInteractiv
         this.addElement(this.label);
     }
 
-    private machine: TouchMachine = new TouchMachine(this);
+    private machine: MouseTouchMachine = new MouseTouchMachine(this);
     private label: ILabelElement = Factory.regularLabel();
 
     public initial(e: Event): void {
         //
     }
 
-    public hover(e: Event): void {
+    public hover(): void {
         //
     }
 
-    public pressed(point: [number, number]): void {
+    public pressed(x: number, y: number): void {
         //
     }
 
-    public triggered(): void {
+    public clicked(): void {
         this.dispatch('GOT_IT', null, true);
     }
 }

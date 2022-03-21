@@ -1,10 +1,11 @@
-import { ILabelElement, LabelElement, IDisplayElement, DisplayElement, TextAlign, IColor } from 'enta';
+import { ILabelElement, IDisplayElement, DisplayElement, TextAlign, IColor } from 'enta';
 import Colors from '../../theme/Colors';
 import Typography from '../../theme/Typography';
+import LabelExtended from './LabelExtended';
 
 export default class Factory {
     public static regularLabel(percentWidth = NaN, width = NaN, textAlign: TextAlign = 'left'): ILabelElement {
-        const labelElement: ILabelElement = new LabelElement();
+        const labelElement: ILabelElement = new LabelExtended();
         labelElement.percentWidth = percentWidth;
         labelElement.width = width;
         labelElement.typeFace = Typography.TYPEFACE_REGULAR;
@@ -14,7 +15,7 @@ export default class Factory {
     }
 
     public static boldLabel(percentWidth = NaN, width = NaN, textColor: IColor = Colors.BLUE_GRAY_500): ILabelElement {
-        const labelElement: ILabelElement = new LabelElement();
+        const labelElement: ILabelElement = new LabelExtended();
         labelElement.percentWidth = percentWidth;
         labelElement.width = width;
         labelElement.typeFace = Typography.TYPEFACE_BOLD;
@@ -24,19 +25,19 @@ export default class Factory {
     }
 
     public static titleLabel(): ILabelElement {
-        const labelElement: ILabelElement = new LabelElement();
+        const labelElement: ILabelElement = new LabelExtended();
         labelElement.text = 'Rick and Morty Explorer';
         labelElement.fontSize = 28;
         labelElement.textColor = Colors.WHITE;
         labelElement.typeFace = Typography.TYPEFACE_BOLD;
         labelElement.fontWeight = 700;
-        labelElement.verticalMiddle = 0;
+        labelElement.alignVertical = 'middle';
         labelElement.letterSpacing = 1;
         return labelElement;
     }
 
     public static headerLabel(text: string, percentWidth = 100, width = NaN, textAlign: TextAlign = 'left'): ILabelElement {
-        const labelElement: ILabelElement = new LabelElement();
+        const labelElement: ILabelElement = new LabelExtended();
         labelElement.width = width;
         labelElement.percentWidth = percentWidth;
         labelElement.text = text;

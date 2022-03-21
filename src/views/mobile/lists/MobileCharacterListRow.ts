@@ -1,4 +1,4 @@
-import { ArrayCollection, DisplayContainer, HorizontalLayout, IDisplayContainer, ILabelElement, ItemRenderer, VerticalLayout, Cursor } from 'enta';
+import { ArrayCollection, DisplayContainer, HorizontalLayout, IDisplayContainer, ILabelElement, ItemRenderer, VerticalLayout } from 'enta';
 import { CharacterSchema } from '../../../graphql/schema/CharacterSchema';
 import Factory from '../../shared/Factory';
 import Chip from '../../shared/Chip';
@@ -11,7 +11,7 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
     public constructor() {
         super();
         this.name = 'CharacterListRow';
-        this.cursor = Cursor.POINTER;
+        this.cursor = 'pointer';
         this.percentWidth = 100;
         this.height = 80;
         this.clip = 'hidden';
@@ -55,7 +55,7 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
             this.textBlockLayout.verticalGap = 16;
             this.gender.visible = true;
             this.status.visible = true;
-            this.cursor = Cursor.NONE;
+            this.style.cursor = 'none';
             if (this.data) {
                 this.mobileEpisodesList.dataProvider = new ArrayCollection(this.data.episode);
             }
@@ -66,7 +66,7 @@ export default class MobileCharacterListRow extends ItemRenderer<CharacterSchema
             this.textBlockLayout.verticalGap = 8;
             this.gender.visible = false;
             this.status.visible = false;
-            this.cursor = Cursor.POINTER;
+            this.cursor = 'pointer';
         }
     }
 

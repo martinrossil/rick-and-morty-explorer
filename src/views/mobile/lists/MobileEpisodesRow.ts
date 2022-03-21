@@ -26,8 +26,8 @@ export default class MobileEpisodesRow extends ItemRenderer<EpisodeSchema> {
             this._season.cornerSize = 7;
             this._season.addElement(this.seasonLabel);
             this.seasonLabel.fontSize = 10;
-            this.seasonLabel.horizontalCenter = 0;
-            this.seasonLabel.verticalMiddle = 0;
+            this.seasonLabel.alignHorizontal = 'center';
+            this.seasonLabel.alignVertical = 'middle';
             this.seasonLabel.textColor = Colors.BLUE_GRAY_700;
             this._season.backgroundColor = Colors.BLUE_GRAY_200;
         }
@@ -43,8 +43,8 @@ export default class MobileEpisodesRow extends ItemRenderer<EpisodeSchema> {
             this._episode.cornerSize = 7;
             this._episode.backgroundColor = Colors.BLUE_GRAY_200;
             this.episodeLabel.fontSize = 10;
-            this.episodeLabel.horizontalCenter = 0;
-            this.episodeLabel.verticalMiddle = 0;
+            this.episodeLabel.alignHorizontal = 'center';
+            this.episodeLabel.alignVertical = 'middle';
             this.episodeLabel.textColor = Colors.BLUE_GRAY_700;
             this._episode.addElement(this.episodeLabel);
         }

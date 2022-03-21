@@ -16,8 +16,8 @@ export default class MobilePageNavigator extends DisplayContainer {
         this.addFilter(Shadows.BOX_SHADOW_4);
         this.backgroundColor = Colors.BLUE_500;
         this.addElement(this.container);
-        this.infoLabel.horizontalCenter = 0;
-        this.infoLabel.verticalMiddle = 0;
+        this.infoLabel.alignHorizontal = 'center';
+        this.infoLabel.alignVertical = 'middle';
         this.infoLabel.textColor = Colors.WHITE;
         this.previous.backgroundColor = Colors.WHITE;
         this.next.backgroundColor = Colors.WHITE;
@@ -37,7 +37,7 @@ export default class MobilePageNavigator extends DisplayContainer {
     private get container(): IDisplayContainer {
         if (!this._container) {
             this._container = new DisplayContainer();
-            this._container.horizontalCenter = 0;
+            this._container.alignHorizontal = 'center';
             this._container.size(200, 56);
             this._container.addElements([this.previous,
                                         this.infoLabel,

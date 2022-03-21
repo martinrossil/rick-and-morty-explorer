@@ -1,4 +1,4 @@
-import { VerticalLayout, DisplayContainer, IDisplayContainer, IList, List } from 'enta';
+import { VerticalLayout, DisplayContainer, IDisplayContainer, IList } from 'enta';
 import { CharacterSchema } from '../../../../graphql/schema/CharacterSchema'
 import CharacterListRow from './CharacterListRow';
 import AppState from '../../../../state/AppState';
@@ -6,6 +6,7 @@ import CharacterListHeader from './CharacterListHeader';
 import PageNavigator from '../navigator/PageNavigator';
 import Colors from '../../../../theme/Colors';
 import Shadows from '../../../../theme/Shadows';
+import ListExtended from './ListExtended';
 
 export default class CharacterList extends DisplayContainer {
     public constructor() {
@@ -37,7 +38,7 @@ export default class CharacterList extends DisplayContainer {
 
     private get list(): IList<CharacterSchema> {
         if (!this._list) {
-            this._list = new List();
+            this._list = new ListExtended();
             this._list.percentWidth = this._list.percentHeight = 100;
             this._list.paddingTop = 40;
             this._list.paddingBottom = 56;

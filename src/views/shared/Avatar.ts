@@ -60,6 +60,7 @@ export default class Avatar extends DisplayContainer {
             this._image.size(this.width, this.height);
             this._image.cornerSize = this.width * 0.5;
             this._image.clip = 'hidden';
+            this._image.objectFit = 'cover';
             this._image.backgroundColor = Colors.BLUE_GRAY_200;
         }
         return this._image;
